@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Site Meta Data -->
+    <meta name="author" content="Developer Zahid | Zahid Hasan Munna">
+    <meta name="description" content="My name is Zahid Hasan Munna. I'm a Front-End Developer. I created this Jar Filler Animation with CSS & JavaScript">
+    <meta name="keywords" content="portfolio, frontend developer, frontend designer, web designer, developer, designer, dev-z">
+    <!-- Site Title -->
+    <title>Jar Filler</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <!-- All CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="jar">
+            <div class="jar__cap"></div>
+            <div class="jar__body">
+                <div class="jar__body__wrapper">
+                    <div class="jar__body__liquid" data-fillPercent="100" data-duration="4">
+                        <svg class="jar__body__liquid__wave jar__body__liquid__wave--back" viewBox="0 0 560 20" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" x="0px" y="0px">
+                            <path d="M420,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C514,6.5,518,4.7,528.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H420z"></path>
+                            <path d="M420,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C326,6.5,322,4.7,311.5,2.7C304.3,1.4,293.6-0.1,280,0c0,0,0,0,0,0v20H420z"></path>
+                            <path d="M140,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C234,6.5,238,4.7,248.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H140z"></path>
+                            <path d="M140,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C46,6.5,42,4.7,31.5,2.7C24.3,1.4,13.6-0.1,0,0c0,0,0,0,0,0l0,20H140z"></path>
+                        </svg>
+                        <svg class="jar__body__liquid__wave jar__body__liquid__wave--front" viewBox="0 0 560 20" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" x="0px" y="0px">
+                            <path d="M420,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C514,6.5,518,4.7,528.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H420z"></path>
+                            <path d="M420,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C326,6.5,322,4.7,311.5,2.7C304.3,1.4,293.6-0.1,280,0c0,0,0,0,0,0v20H420z"></path>
+                            <path d="M140,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C234,6.5,238,4.7,248.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H140z"></path>
+                            <path d="M140,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C46,6.5,42,4.7,31.5,2.7C24.3,1.4,13.6-0.1,0,0c0,0,0,0,0,0l0,20H140z"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="button-group">
+            <button class="btn" onclick="fillJar();createBubbles()">Fill <img src="https://img.icons8.com/doodle/48/000000/fill-color.png"/></button>
+            <button class="btn" onclick="emptyJar();hideBubbles()">Empty<img src="https://img.icons8.com/color/48/000000/mason-jar.png"/></button>
+        </div>
+    </div>
+    
+    <!-- All Script -->
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

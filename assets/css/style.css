@@ -1,0 +1,277 @@
+/* Googles Font Link */
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200..700&display=swap");
+/* Reset Style */
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: clamp(8px, 2vw, 10px);
+}
+
+body {
+  font-family: "Roboto Mono", monospace;
+}
+
+/* Page Container Style */
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 100vh;
+  padding: 1rem;
+  background-color: #070709;
+}
+
+/* Main Jar Style */
+.jar__cap {
+  width: 10rem;
+  height: 1.5rem;
+  border-radius: 1.5rem;
+  margin: 0 auto;
+  margin-bottom: 0.4rem;
+  background-color: #ffffff;
+}
+
+.jar__body {
+  position: relative;
+  padding: 0.8rem;
+  border: 0.5rem solid #ffffff;
+  border-radius: 4rem;
+}
+
+.jar__body__wrapper {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  width: 24rem;
+  height: 35rem;
+  border-radius: 2.85714rem;
+  overflow: hidden;
+}
+
+.jar__body__wrapper::before, .jar__body__wrapper::after {
+  content: "";
+  position: absolute;
+  background-color: #ffffff;
+  z-index: 2;
+}
+
+.jar__body__wrapper::before {
+  top: 10%;
+  right: 5%;
+  width: 0.8rem;
+  height: 7rem;
+  border-radius: 0.8rem;
+  opacity: 0.9;
+}
+
+.jar__body__wrapper::after {
+  left: 5%;
+  bottom: 15%;
+  width: 1.8rem;
+  height: 9rem;
+  border-radius: 1.8rem;
+  opacity: 0.38;
+}
+
+.jar__body__wrapper span {
+  position: absolute;
+  bottom: -2rem;
+  border-radius: 50%;
+  -webkit-box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+          box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+  -webkit-animation: linear infinite;
+          animation: linear infinite;
+  -webkit-animation-name: add__bubbles;
+          animation-name: add__bubbles;
+}
+
+.jar__body__wrapper span::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  -webkit-transform: scale(0.5) translate(-25%, -20%);
+          transform: scale(0.5) translate(-25%, -20%);
+  background: radial-gradient(rgba(255, 255, 255, 0.6), transparent);
+}
+
+.jar__body__wrapper span.removed {
+  -webkit-animation: remove__bubbles linear forwards;
+          animation: remove__bubbles linear forwards;
+}
+
+@-webkit-keyframes remove__bubbles {
+  0% {
+    opacity: 0.5;
+    -webkit-transform: translateY(-20rem);
+            transform: translateY(-20rem);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes remove__bubbles {
+  0% {
+    opacity: 0.5;
+    -webkit-transform: translateY(-20rem);
+            transform: translateY(-20rem);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes add__bubbles {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  10%, 90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(-35rem);
+            transform: translateY(-35rem);
+  }
+}
+
+@keyframes add__bubbles {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  10%, 90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(-35rem);
+            transform: translateY(-35rem);
+  }
+}
+
+.jar__body__liquid {
+  position: relative;
+  width: 100%;
+  height: 27rem;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(40%, #ff0078), to(#f6efa7));
+  background: linear-gradient(#ff0078 40%, #f6efa7);
+  -webkit-transition: -webkit-transform cubic-bezier(0.37, 0, 0.63, 1);
+  transition: -webkit-transform cubic-bezier(0.37, 0, 0.63, 1);
+  transition: transform cubic-bezier(0.37, 0, 0.63, 1);
+  transition: transform cubic-bezier(0.37, 0, 0.63, 1), -webkit-transform cubic-bezier(0.37, 0, 0.63, 1);
+}
+
+.jar__body__liquid__wave {
+  position: absolute;
+  top: -1.65rem;
+  width: 200%;
+  z-index: -1;
+}
+
+.jar__body__liquid__wave--front {
+  right: 0;
+  fill: #ff0078;
+  -webkit-animation: wave-move__front .95s infinite linear;
+          animation: wave-move__front .95s infinite linear;
+}
+
+.jar__body__liquid__wave--back {
+  left: 0;
+  fill: rgba(255, 138, 193, 0.7);
+  -webkit-animation: wave-move__back .9s infinite linear;
+          animation: wave-move__back .9s infinite linear;
+}
+
+@-webkit-keyframes wave-move__front {
+  100% {
+    -webkit-transform: translate(50%, 0);
+            transform: translate(50%, 0);
+  }
+}
+
+@keyframes wave-move__front {
+  100% {
+    -webkit-transform: translate(50%, 0);
+            transform: translate(50%, 0);
+  }
+}
+
+@-webkit-keyframes wave-move__back {
+  100% {
+    -webkit-transform: translate(-50%, 0);
+            transform: translate(-50%, 0);
+  }
+}
+
+@keyframes wave-move__back {
+  100% {
+    -webkit-transform: translate(-50%, 0);
+            transform: translate(-50%, 0);
+  }
+}
+
+/* Button Group Style */
+.button-group {
+  margin-top: 4rem;
+}
+
+.button-group .btn {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.5rem;
+  padding-left: 1.5rem;
+  border: 0;
+  border-radius: 5px;
+  font-size: 2rem;
+  font-weight: 500;
+  color: #ffffff;
+  background: #ff0078;
+  cursor: pointer;
+  font-family: "Roboto Mono", monospace;
+  -webkit-transition: color .3s linear, background .3s linear;
+  transition: color .3s linear, background .3s linear;
+}
+
+.button-group .btn:not(:last-child) {
+  margin-right: 2rem;
+}
+
+.button-group .btn:hover, .button-group .btn:focus {
+  color: #070709;
+  background: #f6efa7;
+}
+/*# sourceMappingURL=style.css.map */

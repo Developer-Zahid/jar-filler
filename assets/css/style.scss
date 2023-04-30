@@ -1,0 +1,206 @@
+// SCSS Variables
+$font-primary: 'Roboto Mono', monospace;
+$bg-color: #070709;
+$border-color: #ffffff;
+
+$gradient__top: #ff1900;
+$gradient__bottom: #a81579;
+
+$gradient__top: #ff0078;
+$gradient__bottom: #f6efa7;
+
+// $gradient__top: #bb73e0;
+// $gradient__bottom: #ff8ddb;
+
+// $gradient__top: #d13abd;
+// $gradient__bottom: #eebd89;
+
+$gradient-color: linear-gradient($gradient__top 40%, $gradient__bottom);
+$radius: 4rem;
+$border: 0.5rem;
+$gap: 0.8rem;
+$transition-timing-function: cubic-bezier(0.37, 0, 0.63, 1);
+
+/* Googles Font Link */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200..700&display=swap');
+
+/* Reset Style */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: clamp(8px, 2vw, 10px);
+}
+
+body{
+    font-family: $font-primary;
+}
+
+/* Page Container Style */
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 1rem;
+    background-color: $bg-color;
+}
+
+/* Main Jar Style */
+.jar{
+    &__cap{
+        width: 10rem;
+        height: 1.5rem;
+        border-radius: 1.5rem;
+        margin: 0 auto;
+        margin-bottom: $gap/2;
+        background-color: $border-color;
+    }
+    &__body{
+        position: relative;
+        padding: $gap;
+        border: $border solid $border-color;
+        border-radius: $radius;
+        &__wrapper{
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            width: 24rem;
+            height: 35rem;
+            border-radius: $radius/1.4;
+            overflow: hidden;
+            &::before,
+            &::after{
+                content: "";
+                position: absolute;
+                background-color: #ffffff;
+                z-index: 2;
+            }
+            &::before{ 
+                top: 10%;
+                right: 5%;
+                width: 0.8rem;
+                height: 7rem;
+                border-radius: 0.8rem;
+                opacity: 0.9;
+            }
+            &::after{
+                left: 5%;
+                bottom: 15%;
+                width: 1.8rem;
+                height: 9rem;
+                border-radius: 1.8rem;
+                opacity: 0.38;
+            }
+            span{
+                position: absolute;
+                bottom: -2rem;
+                border-radius: 50%;
+                box-shadow: inset 0 0 10px rgba($color: #ffffff, $alpha: 0.5);
+                pointer-events: none;
+                animation:  linear infinite;
+                animation-name: add__bubbles;
+                &::after{
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                    transform: scale(0.5) translate(-25%, -20%);
+                    background: radial-gradient(rgba($color: #ffffff, $alpha: 0.6), transparent);
+                }
+                &.removed{
+                    animation: remove__bubbles linear forwards;
+                    @keyframes remove__bubbles {
+                        0%{
+                            opacity: 0.5;
+                            transform: translateY(-20rem);
+                        }
+                        100%{
+                            opacity: 0;
+                            transform: translateY(0);
+                        }
+                    }
+                }
+                @keyframes add__bubbles {
+                    0%{
+                        opacity: 0;
+                        transform: translateY(0);
+                    }
+                    10%,90%{
+                        opacity: 1;
+                    }
+                    100%{
+                        opacity: 0;
+                        transform: translateY(-35rem);
+                    }
+                }
+            }
+        }
+        &__liquid{
+            position: relative;
+            width: 100%;
+            height: 27rem;
+            background: $gradient-color;
+            transition: transform $transition-timing-function;
+            &__wave{
+                position: absolute;
+                top: -1.65rem;
+                width: 200%;
+                z-index: -1;
+                &--front{
+                    right: 0;
+                    fill: $gradient__top;
+                    animation: wave-move__front .95s infinite linear;
+                }
+                &--back{
+                    left: 0;
+                    fill: rgba(lighten($gradient__top, $amount: 27), $alpha: 0.7);
+                    animation: wave-move__back .9s infinite linear;
+                }
+                @keyframes wave-move__front {
+                    100%{
+                        transform: translate(50%, 0);
+                    }
+                }
+                @keyframes wave-move__back {
+                    100%{
+                        transform: translate(-50%, 0);
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Button Group Style */
+.button-group{
+    margin-top: 4rem;
+    .btn{
+        display: inline-flex;
+        align-items: center;
+        padding: 0.5rem;
+        padding-left: 1.5rem;
+        border: 0;
+        border-radius: 5px;
+        font-size: 2rem;
+        font-weight: 500;
+        color: #ffffff;
+        background: $gradient__top;
+        cursor: pointer;
+        font-family: $font-primary;
+        transition: color .3s linear, background .3s linear;
+        &:not(:last-child){
+            margin-right: 2rem;
+        }
+        &:hover,
+        &:focus{
+            color: $bg-color;
+            background: $gradient__bottom;
+        }
+    }
+}
